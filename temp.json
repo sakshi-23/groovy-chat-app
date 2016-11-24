@@ -1,0 +1,34 @@
+{
+  "id": "944bb6cd-1c37-467d-81d8-134c15faf92b",
+  "timestamp": "2016-11-21T22:56:24.186Z",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "What does Comp Social do?",
+    "action": "lab_about",
+    "actionIncomplete": false,
+    "parameters": {
+      "lab_names": "ACME Lab",
+      "questions": "what"
+    },
+    "contexts": [],
+    "metadata": {
+      "intentId": "de72b2b9-f438-4e0c-afec-6bb68ac8b1ca",
+      "webhookUsed": "true",
+      "intentName": "What work do labs do?"
+    },
+    "fulfillment": {
+      "messages": [
+        {
+          "type": 0,
+          "speech": ""
+        }
+      ]
+    },
+    "score": 0.93
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "2808b0eb-4d94-4fc8-9ddd-2e485f4e6670"
+}

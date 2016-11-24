@@ -1,0 +1,82 @@
+{
+
+  "contribute":{
+    "main":"You can use one of our social media channels or contact any GVU member",
+     "description":["More than 80 faculty and 300 students are working on exploring new ideas thorough computing technology.",
+       "We invite you to join our efforts and help us grow as a partner."]
+   },
+
+  "about":{
+    "main":"The GVU Center at Georgia Tech (formerly the Graphics, Visualization and Usability Center) is an interdisciplinary research center",
+    "description":[
+      "It is located near Technology Square in Atlanta, Georgia, United States, and affiliated with the Georgia Institute of Technology.",
+      "It was founded by James D. Foley, the Center's first director, on October 15, 1992.",
+      "According to U.S. News & World Report, it is one of the best such facilities in the world.",
+      "The GVU Center's current director is W. Keith Edwards, Georgia Tech alum and Professor in the School of Interactive Computing."]
+  },
+  "vision":{
+    "main":"Our vision is to imagine and build computing solutions to social, scientific and technical challenges",
+    "description":["We seek to create the next innovations in people-focused technology that will shape how we live in a world poised for the next computing revolution.",
+      "The GVU Center has for more than 20 years represented demonstrated excellence and passion in computing research innovation at Georgia Tech and its impact in shaping communities and how we live everyday.",
+      "Our vision is built on the interdisciplinary research ecosystem that spans across Georgia Tech.",
+      "The GVU Center is a primary incubator for a dynamic community of research propelling new partnerships with business, national research agencies and other academic experts.",
+      "Technology alone cannot solve the problems created by the complex needs of people: people working together solve problems.",
+      "In GVU, these partnerships are what we do best.",
+      "Virtually all GVU research brings together multiple perspectives and disciplines.",
+      "Much of our research also involves external industry participation, bringing valuable insight to real-world problems and enabling applications to solve complex challenges.",
+      "GVU’s versatility and breadth of interdisciplinary expertise is our most unique and powerful asset as we seek to fulfill our vision of imagining new computing solutions."
+      ]
+  },
+  "mission":{
+    "main":"The GVU Center inspires and enables interdisciplinary research in people-centered computing technology, creating new innovations for society.",
+     "description":["In this era of rapid technological change, the GVU Center's mission is to advance a leading network of researchers who are creating the technologies that will shape how we live tomorrow.",
+       "GVU has been instrumental in expanding the scope of how technology can shape our lives and has changed the academic landscape of Georgia Tech through the formation of new academic research groups, programs and units, and new interdisciplinary partnerships.",
+       "GVU is dedicated to meeting the challenge of transforming computing research into innovative, relevant, and useful solutions that make contributions to the real-world needs of people, as individuals and in communities.",
+       "Through innovative and interactive computing technologies, we enable people to unlock their potential.",
+       "Our approach to research demands deep insight into human behavior and motivation, technical savvy to invent cutting-edge technologies, and creativity to imagine and design the future.",
+       "GVU’s research excellence is tied to the dedication and aptitude of our researchers to explore the unknown and take bold risks in their work.",
+       "We strongly hold to the belief that their success is our own. "
+       ]
+  },
+  "history":{
+    "main":"In 1988, two professors, Larry Hodges and Bill Ribarsky, created the Georgia Tech Computer Graphics Interest Group, or TechGraph, now named GVU",
+    "description":[
+      "The GVU Center (formerly the Graphics, Visualization and Usability Center) has become synonymous with excellence in academic research in the many areas",
+      "Domains include 3D compression, animation, augmented reality, collaborative work, educational technologies, gaming, graphics, human-computer interaction, information visualization, new media, online communities, perception, robotics, ubiquitous computing, virtual reality and wearable computing.",
+      "Computer graphics have been a subject of great interest at Georgia Tech for many years.",
+      "In 1988, two professors, Larry Hodges and Bill Ribarsky, created the Georgia Tech Computer Graphics Interest Group, or TechGraph.",
+      "The group sponsored seminars on projects relating to the members' shared interests in graphics and visualization.",
+      "Due to the popularity of the seminars, Hodges and Ribarsky created a SGI-powered Scientific Visualization Lab.",
+      "It later merged with the Biomedical Visualization Lab, the Animation Lab, and the Video Lab, to form the Georgia Tech Imaging Consortium. The Consortium created a unified environment for sharing ideas and resources, and encouraged research collaboration. It laid the groundwork for interdisciplinary research by serving as a campus-wide resource, fostering creativity and supporting related academic programs.",
+      "In early 1991, under the guidance of Dr. James Foley, the Consortium's name was changed to the Graphics, Visualization & Usability Center, or GVU Center.",
+      "In 1992, backed by the College of Computing, a new 3,000-square-foot GVU/Scientific Visualization Lab was created.",
+      "In 2006, GVU significantly expanded into new quarters at the Technology Square Research Building.",
+      "Over the years, GVU has become much more than graphics, visualization, and usability.",
+      "It continues to grow with new faculty, students, labs, and leading edge projects in the interdisciplinary tradition started by Hodges and Ribarsky and fully realized by Dr. Foley."
+    ]
+  },
+   "website":{
+    "main":"http://www.gvu.gatech.edu/",
+     "description":[]
+   },
+  "twitter":{
+    "main":"https://twitter.com/gvucenter",
+    "description":[]
+  },
+  "facebook":{
+    "main":"https://www.facebook.com/gvucenter",
+    "description":[]
+  },
+  "flickr":{
+    "main":"https://www.flickr.com/photos/96938041@N06/",
+    "description":[]
+  },
+  "contact":{
+     "main":"You can use one of our social media channels",
+     "description":["https://www.facebook.com/gvucenter","https://twitter.com/gvucenter","http://www.gvu.gatech.edu/"]
+   }
+
+
+
+}
+
