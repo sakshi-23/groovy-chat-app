@@ -2,49 +2,52 @@ import urllib2
 from bs4 import BeautifulSoup
 from pprint import  pprint
 import json
+import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 
 
-# with open('/Users/sakshipratap/PycharmProjects/GVU/project/apiai-weather-webhook-sample-master/labData.json') as json_data:
-#     json_data = json.load(json_data)
-#     for i in json_data:
-#         i["description"] = sent_tokenize(i["description"]) if i["description"] else []
-#     with open('labData.json', 'w') as outfile:
-#         json.dump(json_data, outfile)
 
-with open(
-        '/Users/sakshipratap/PycharmProjects/GVU/project/apiai-weather-webhook-sample-master/facultyData.json') as json_data:
+with open('/Users/sakshipratap/PycharmProjects/GVU/project/apiai-weather-webhook-sample-master/peopleData.json') as json_data:
     json_data = json.load(json_data)
     for i in json_data:
-        i["description"] = sent_tokenize(i["description"]) if i["description"] else []
-    with open('peopleData2.json', 'w') as outfile:
-        json.dump(json_data, outfile)
+        print i["name"].split(" ")[0]
+
+print len(json_data)
+print "---"
+
+for i in json_data:
+    print i["name"].split(" ")[1]
+
+
+# with open('/Users/sakshipratap/PycharmProjects/GVU/project/apiai-weather-webhook-sample-master/peopleData.json') as json_data:
+#     json_data = json.load(json_data)
+#     for i in json_data:
+#         print i["name"]
+
+
+url = "http://www.gvu.gatech.edu/people/gvu-administration"  # change to whatever your url is
+
+page = urllib2.urlopen(url).read()
+soup = BeautifulSoup(page, "html.parser")
+
+faculties = soup.find_all( "td")
+
+labData=[]
+for faculty in faculties:
+    current = {
+        'name': faculty.find ("h2", {"class":"facultyname"} ).text,
+        'title': faculty.find ("div", {"class":"facultytitle"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultytitle"} ).find ("div", {"class":"field-item even"} ) else None,
+        'dept': faculty.find ("div", {"class":"facultydept"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultydept"} ).find ("div", {"class":"field-item even"} ) else None,
+        'specialty':faculty.find ("div", {"class":"facultyspecialty"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultyspecialty"} ).find ("div", {"class":"field-item even"} ) else None,
+        'description':faculty.find ("div", {"class":"facultydescription"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultydescription"} ).find ("div", {"class":"field-item even"} ) else None,
+
+    }
+    labData.append(current)
 
 
 
-# url = "http://www.gvu.gatech.edu/people/gvu-administration"  # change to whatever your url is
-#
-# page = urllib2.urlopen(url).read()
-# soup = BeautifulSoup(page, "html.parser")
-#
-# faculties = soup.find_all( "td")
-#
-# labData=[]
-# for faculty in faculties:
-#     current = {
-#         'name': faculty.find ("h2", {"class":"facultyname"} ).text,
-#         'title': faculty.find ("div", {"class":"facultytitle"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultytitle"} ).find ("div", {"class":"field-item even"} ) else None,
-#         'dept': faculty.find ("div", {"class":"facultydept"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultydept"} ).find ("div", {"class":"field-item even"} ) else None,
-#         'specialty':faculty.find ("div", {"class":"facultyspecialty"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultyspecialty"} ).find ("div", {"class":"field-item even"} ) else None,
-#         'description':faculty.find ("div", {"class":"facultydescription"} ).find ("div", {"class":"field-item even"} ).text if faculty.find ("div", {"class":"facultydescription"} ).find ("div", {"class":"field-item even"} ) else None,
-#
-#     }
-#     labData.append(current)
-#
-#
-#
-# with open('peopleData.json', 'w') as outfile:
-#     json.dump(labData, outfile)
+with open('peopleData.json', 'w') as outfile:
+    json.dump(labData, outfile)
 
 #
 # url = "http://gvu.gatech.edu/research/labs"  # change to whatever your url is

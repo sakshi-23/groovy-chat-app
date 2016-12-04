@@ -1,0 +1,49 @@
+{
+  "id": "42a1f90a-4d1e-4ddc-9a54-961571850e18",
+  "timestamp": "2016-12-04T20:37:56.371Z",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "Does anyone work on AI?",
+    "action": "research_lab_matching",
+    "actionIncomplete": false,
+    "parameters": {
+      "questions": "",
+      "research_areas": "Artificial Intelligence"
+    },
+    "contexts": [
+      {
+        "name": "people_detail",
+        "parameters": {
+          "first_names.original": "John's",
+          "first_names": "John",
+          "last_names": "",
+          "last_names.original": "",
+          "research_areas.original": "AI?",
+          "questions": "",
+          "questions.original": "",
+          "research_areas": "Artificial Intelligence"
+        },
+        "lifespan": 0
+      }
+    ],
+    "metadata": {
+      "intentId": "2913d1a7-ecb3-46a6-98de-5a215708adba",
+      "webhookUsed": "true",
+      "intentName": "Research Areas"
+    },
+    "fulfillment": {
+      "messages": [
+        {
+          "type": 0,
+          "speech": ""
+        }
+      ]
+    },
+    "score": 1
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "2f556410-b296-45ed-958a-bd6cb73b749a"
+}
