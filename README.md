@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Api.ai - sample webhook implementation in Python
 
 This is a really simple webhook implementation that gets Api.ai classification JSON (i.e. a JSON output of Api.ai /query endpoint) and returns a fulfillment response.
@@ -15,6 +14,3 @@ The services takes the `geo-city` parameter from the action, performs geolocatio
 
 The service packs the result in the Api.ai webhook-compatible response JSON and returns it to Api.ai.
 
-=======
-The agent is deployed in Slack as well as can be accessed using the following https://bot.api.ai/2c1b21d3-0442-4bbe-bd0a-2efa57054598 . Note because of the deployment in Heroku, the agent might take some time to start answering the questions once initiated. 
->>>>>>> 85ffdf50de4e474c03bfd2ed55881e3d55264e32
