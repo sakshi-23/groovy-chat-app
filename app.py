@@ -42,27 +42,30 @@ def webhook():
 def processRequest(req):
     result = {}
 
-    if req.get("result").get("contexts") and len(req.get("result").get("contexts"))>0:
-        context =req.get("result").get("contexts")[-1]
-        if context.get("name") == 'people_detail'\
+    if req.get("result").get("contexts") and len(req.get("result").get("contexts"))>1:
+        context =req.get("result").get("contexts")[-2]
+        if not req.get("result").get("action") == "people_info_general" and context.get("name") == 'people_detail'\
                 and len(context.get("parameters").get("first_names")+context.get("parameters").get("last_names"))>0 \
-                and (context.get("parameters").get("parameter")) in peopleData[0] \
+                and (req.get("result").get("parameters").get("parameter")) in peopleData[0] \
                 and not (req.get("result").get("parameters").get("Organization")):
             req["result"] = context
             req.get("result")["action"] = "people_info_general"
 
         elif context.get("name") == 'lab_detail' and (context.get("parameters").get("lab_names"))\
-                and (context.get("parameters").get("parameter")) in labData[0] and not (req.get("result").get("parameters").get("Organization")):
+                and (req.get("result").get("parameters").get("parameter")) in labData[0] and not (req.get("result").get("parameters").get("Organization")):
             req["result"] = context
             req.get("result")["action"]= "lab_info_general"
 
 
     #GVU about
     if req.get("result").get("action") == "gvu_about":
-        if req.get("result").get("parameters").get("questions")=='where':
+        if req.get("result").get("parameters").get("questions") == 'where':
             result = getGVUInfo('location')
-        elif req.get("result").get("parameters").get("questions")=='how':
+        elif req.get("result").get("parameters").get("questions") == 'how':
             result = getGVUInfo('quality')
+        elif req.get("result").get("parameters").get("questions") == 'when':
+            result = getGVUInfo('schedule')
+
         else:
             result = getGVUInfo('about')
 
@@ -78,7 +81,7 @@ def processRequest(req):
 
     # GVU event
     elif req.get("result").get("action") == "gvu_events":
-        result = getGVUEvents()
+        result = getGVUEvents(req.get("result").get("parameters").get("questions"))
 
     #Lab basic
     elif req.get("result").get("action") == "lab_basic":
@@ -87,7 +90,10 @@ def processRequest(req):
     # Lab work
     elif req.get("result").get("action") == "lab_detail":
         key = req.get("result").get("parameters").get("lab_names")
-        result = getInfo("description",key,"lab")
+        if req.get("result").get("parameters").get("questions") == 'who':
+            result = getInfo("people",key,"lab")
+        else:
+            result = getInfo("description",key,"lab")
 
     # Lab params
     elif req.get("result").get("action") == "lab_info_general":
@@ -103,12 +109,17 @@ def processRequest(req):
     # People work
     elif req.get("result").get("action") == "people_detail":
         key = req.get("result").get("parameters").get("first_names")+" "+req.get("result").get("parameters").get("last_names")
+        if len(key)==1:
+            key =req.get("result").get("parameters").get("first_names_context")+" "+req.get("result").get("parameters").get("last_names_context")
         result = getInfo("description",key,"people")
 
     # People params
     elif req.get("result").get("action") == "people_info_general":
         key = req.get("result").get("parameters").get("first_names") + " " + req.get("result").get("parameters").get(
             "last_names")
+        if len(key) == 1:
+            key = req.get("result").get("parameters").get("first_names_context") + " " + req.get("result").get(
+                "parameters").get("last_names_context")
         param = req.get("result").get("parameters").get("parameter")
         result = getInfo(param,key,"people")
 
@@ -125,7 +136,10 @@ def processRequest(req):
 
 
 def getInfo(param, key, type):
-    line1 = "Sorry, I am unable to find any information about "+key.strip()+"'s "+param+". Sometimes the variation in words confuses me"
+    line1 = "Sorry, I am unable to find any information about "+key.strip()+"'s "+param+". Either there is no information or the wording is confusing me"
+    if len(key) <2 :
+        line1 = "Sorry, I am unsure about who's "+param+" am I looking for."
+
     line2 = ""
     if type == 'lab':
         data = labData
@@ -134,7 +148,8 @@ def getInfo(param, key, type):
 
     index = next((index for (index, d) in enumerate(data) if
                   key.lower() in d["name"].lower() or d["name"].lower() in key.lower()), -1)
-    if index >= 0:
+
+    if index >= 0 and len(key)>2:
         if param == "description":
                 line1 = data[index].get(param)[0] if data[index].get(param) else line1
                 count = len(data[index].get(param))
@@ -146,10 +161,14 @@ def getInfo(param, key, type):
                     line2 = " ".join(results)
         elif data[index].get(param):
             if not param  == "people":
-                line1 = key.strip()+"'s "+param+" is "+data[index].get(param)
+                    line1 = key.strip()+"'s "+param+" is "+data[index].get(param)
             else:
-                line1 = ", ".join(data[index].get(param))+ " work at "+key
-
+                if len(data[index].get(param))==1:
+                    line1 = ", ".join(data[index].get(param))+ " works at "+key
+                elif len(data[index].get(param))>1:
+                    line1 = ", ".join(data[index].get(param))+ " all work at "+key
+        else:
+            line1 = "Sorry, I seem to have no information about " + key.strip() + "'s " + param + ". Do you mind looking up www.gvu.gatech.edu/ . That site knows more than me"
 
     return {"result":line1+line2}
 
@@ -164,14 +183,18 @@ def getGVUInfo(param):
     return {"result":line1+line2}
 
 
-def getGVUEvents():
-    line1 = "GVU hosts seminars like the Brown Bag Series to talk about the research. "
-    count = len(eventData)
-    index = random.randint(0, count - 1)
-    data  = eventData[index]
-    print data
-    line2 = "A session on "+data["date"]+" was part of the "+data["name"]+"\n Here is the link: http://gvu.gatech.edu"+data.get("link")
-    return {"result":line1+line2}
+def getGVUEvents(question):
+    line1 = "GVU hosts seminars like the Brown Bag Series to provide information about what is going on. "
+    line3 = "Latest events updated here: http://gvu.gatech.edu/event/upcoming"
+    if question =='when':
+        line2 = "All events for this year are done."
+    else:
+        count = len(eventData)
+        index = random.randint(0, count - 1)
+        data  = eventData[index]
+        line2 = "On "+data["date"]+" there was "+data["name"]+". Here is the link: http://gvu.gatech.edu"+data.get("link")
+        line3 = "Latest events updated here: http://gvu.gatech.edu/event/upcoming"
+    return {"result":line1+line2+line3}
 
 
 def getLabBasic():
@@ -226,13 +249,13 @@ def makeWebhookAboutResult(data):
 
 
 if __name__ == '__main__':
-    with open('data/temp.json') as json_data:
-        req = json.load(json_data)
-    processRequest(req)
-    # port = int(os.getenv('PORT', 5000))
-    #
+    # with open('data/temp.json') as json_data:
+    #     req = json.load(json_data)
+    # processRequest(req)
+    port = int(os.getenv('PORT', 5000))
+
     # print "Starting app on port %d" % port
-    #
-    # app.run(debug=False, port=port, host='0.0.0.0')
-    #
+
+    app.run(debug=False, port=port, host='0.0.0.0')
+
     # app.run(debug=True, port=port, host='0.0.0.0')

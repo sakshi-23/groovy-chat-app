@@ -3,7 +3,7 @@
   "contribute":{
     "main":"Check out our website http://www.gvu.gatech.edu/ .You can also use one of our social media channels or contact any GVU member.",
      "description":["More than 80 faculty and 300 students are working on exploring new ideas thorough computing technology.",
-       "We invite you to join our efforts and help us grow as a partner."]
+       "We are looking for motivated people like you to join our efforts and help us grow as a partner."]
    },
 
   "about":{
@@ -56,19 +56,19 @@
     ]
   },
    "website":{
-    "main":"http://www.gvu.gatech.edu/",
+    "main":"GVU's website it http://www.gvu.gatech.edu/",
      "description":[]
    },
   "twitter":{
-    "main":"https://twitter.com/gvucenter",
+    "main":"Follow us on twitter at https://twitter.com/gvucenter",
     "description":[]
   },
   "facebook":{
-    "main":"https://www.facebook.com/gvucenter",
+    "main":"Find out about us on https://www.facebook.com/gvucenter",
     "description":[]
   },
   "flickr":{
-    "main":"https://www.flickr.com/photos/96938041@N06/",
+    "main":"Check our latest pictures at https://www.flickr.com/photos/96938041@N06/",
     "description":[]
   },
   "contact":{
@@ -78,17 +78,30 @@
 
   "location":{
      "main":"GVU is located near Technology Square in Atlanta, Georgia, United States, and affiliated with the Georgia Institute of Technology.",
-     "description":[]
+     "description":["Here you can find the directions. http://gvu.gatech.edu/about/contact/directions"]
    },
 
   "quality":{
      "main":"The GVU Center has for more than 20 years represented demonstrated excellence and passion in computing research innovation at Georgia Tech. It is a great place!",
      "description":[]
    },
+  "director":{
+     "main":"The GVU Center's current director is W. Keith Edwards, Georgia Tech alum and Professor in the School of Interactive Computing.",
+    "description":[]
+   },
   "Brown Bag":{
-    "main":"GVU Brown Bag Seminar is a talk series detailing GVU's unique resources and opportunities, and previewing some of the events coming up this semester",
+    "main":"GVU Brown Bag Seminar is a talk series detailing GVU's unique resources and opportunities, and previewing some of the events coming up this semester. You can check out the recent Brown Bags here: http://gvu.gatech.edu/event/brown-bag-archive",
     "description":[]
   },
+    "members":{
+    "main":"We have more than 108 researchers and administrators associated with GVU working on the next computing revolution.",
+    "description":[]
+  },
+    "Georgia Tech":{
+    "main":"The Georgia Institute of Technology (commonly referred to as Georgia Tech, Tech, or GT) is a public research university in Atlanta, Georgia, in the United States.",
+      "description":[]
+  },
+
   "schedule":{
     "main":"All events for this semester are done.",
     "description":[

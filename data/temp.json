@@ -1,45 +1,42 @@
 {
-  "id": "42a1f90a-4d1e-4ddc-9a54-961571850e18",
-  "timestamp": "2016-12-04T20:37:56.371Z",
+  "id": "f2dad7e2-c7d6-4829-9c93-a5736643529d",
+  "timestamp": "2016-12-04T23:16:28.837Z",
   "result": {
     "source": "agent",
-    "resolvedQuery": "Does anyone work on AI?",
-    "action": "research_lab_matching",
+    "resolvedQuery": "Who directs RNOC",
+    "action": "lab_detail",
     "actionIncomplete": false,
     "parameters": {
-      "questions": "",
-      "research_areas": "Artificial Intelligence"
+      "lab_names": "RNOC",
+      "questions": "who"
     },
     "contexts": [
       {
-        "name": "people_detail",
+        "name": "lab_detail",
         "parameters": {
-          "first_names.original": "John's",
-          "first_names": "John",
-          "last_names": "",
-          "last_names.original": "",
-          "research_areas.original": "AI?",
-          "questions": "",
-          "questions.original": "",
-          "research_areas": "Artificial Intelligence"
+          "lab_names.original": "Pixi Lab",
+          "questions": "who",
+          "questions.original": "Who",
+          "lab_names": "Pixi Lab"
         },
-        "lifespan": 0
+        "lifespan": 1
       }
     ],
     "metadata": {
-      "intentId": "2913d1a7-ecb3-46a6-98de-5a215708adba",
+      "intentId": "de72b2b9-f438-4e0c-afec-6bb68ac8b1ca",
       "webhookUsed": "true",
-      "intentName": "Research Areas"
+      "intentName": "Lab work"
     },
     "fulfillment": {
-      "messages": [
-        {
-          "type": 0,
-          "speech": ""
-        }
-      ]
+      "speech": "Pixi Lab researchers are exploring the boundaries between interaction and infrastructure with the goal of creating technology that is not simply usable, but also useful.Taking a human-centered approach, researchers begin by understanding the needs and practices of people through empirical methods, then designing compelling user experiences that fit that context and, finally, building the underlying systems and networking infrastructure necessary to realize that user experience.",
+      "source": "apiai-weather-webhook-sample",
+      "displayText": "Pixi Lab researchers are exploring the boundaries between interaction and infrastructure with the goal of creating technology that is not simply usable, but also useful.Taking a human-centered approach, researchers begin by understanding the needs and practices of people through empirical methods, then designing compelling user experiences that fit that context and, finally, building the underlying systems and networking infrastructure necessary to realize that user experience.",
+      "messages": {
+        "type": 0,
+        "speech": "Pixi Lab researchers are exploring the boundaries between interaction and infrastructure with the goal of creating technology that is not simply usable, but also useful.Taking a human-centered approach, researchers begin by understanding the needs and practices of people through empirical methods, then designing compelling user experiences that fit that context and, finally, building the underlying systems and networking infrastructure necessary to realize that user experience."
+      }
     },
-    "score": 1
+    "score": 0.92
   },
   "status": {
     "code": 200,
